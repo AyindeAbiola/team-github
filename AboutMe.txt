@@ -1,0 +1,5 @@
+I am a detail-oriented individual with passion for technology and problem-solving. I have experience in manual and automated testing techniques. Through my academic coursework and previous internship, I have gained a strong understanding of software development methodologies, software testing tools, and software quality assurance processes.
+
+As a Junior Software QA, I understand the importance of ensuring that software is functional, reliable, and meets user requirements. I have experience in creating test plans, test cases, and executing test scripts using Postman Tool. 
+
+I am comfortable working in a team environment or independently, depending on the needs of the project or the system of the organization.

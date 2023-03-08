@@ -1,0 +1,11 @@
+Task 8B (Environment Variable)
+
+GET Request
+1. Find pet by ID:
+I was able to set a Enviroment variable manually and automatedly
+
+2. Find pets by status:
+I was unable to declare variables because the Values kept changing par execution, and for us to declare a variable either global or environment wise, values must maintain stability.
+
+3. Find pets by tags
+I couldn't fetch pets' data by tags because the response body is empty. Hence, I couldn't parse variable.

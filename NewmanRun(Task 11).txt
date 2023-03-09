@@ -1,0 +1,132 @@
+SwaggerPetstore
+
+□ pet / {petId} / GET Request
+└ Find pet by ID
+  GET https://petstore.swagger.io/v2/pet/16621634 [404 Not Found, 384B, 1175ms]
+  √  Status code is 404
+  √  verify that 'type' has 'error' as a string name
+  √  verify that 'code' has a value of 1
+  √  verify that type message 'Pet not found' is present as a string
+
+└ Find Pets by status
+  GET https://petstore.swagger.io/v2/pet/findByStatus?status=available&status=available [200 OK, 79.09kB, 625ms]
+  √  Status code is 200
+  √  Body matches string
+  √  id 92233720368542488449 is available
+  √  id 9223372036854249388 is available
+  √  id 9223372036854249390 is available
+
+└ Finds Pets by tags
+  GET https://petstore.swagger.io/v2/pet/findByTags?tags=ut veniam qui aute&tags=nostrud mollit adipisicing [200 OK, 328B, 217ms]
+  √  Status code is 200
+
+□ pet / {petId} / POST Request
+└ Updates a pet in the store with form data
+  POST https://petstore.swagger.io/v2/pet/16621634 [404 Not Found, 384B, 273ms]
+  √  Status code is 404
+
+└ Add a new pet to the store
+  POST https://petstore.swagger.io/v2/pet [200 OK, 482B, 226ms]
+  √  Successful POST request
+
+□ pet / {petId} / DEL Request
+└ Deletes a pet
+  DELETE https://petstore.swagger.io/v2/pet/16621634 [404 Not Found, 292B, 241ms]
+  √  Status code is 404
+
+□ pet / {petId} / PUT Request
+└ Update an existing pet
+  PUT https://petstore.swagger.io/v2/pet [200 OK, 584B, 208ms]
+  √  Response time is less than 300ms
+  √  Status code is 200
+
+□ store / order / {orderId} / GET Request
+└ Returns pet inventories by status
+  GET https://petstore.swagger.io/v2/store/inventory [200 OK, 431B, 216ms]
+  √  Status code is 200
+  1. the value of Available is 1
+
+└ Find purchase order by ID
+  GET https://petstore.swagger.io/v2/store/order/2 [200 OK, 433B, 226ms]
+  2. Status code is 404
+  √  Content-Type is present
+
+□ store / order / {orderId} / POST Request
+└ Place an order for a pet
+  POST https://petstore.swagger.io/v2/store/order [200 OK, 466B, 237ms]
+  √  Status code is 200
+  √  Successful POST request
+
+□ store / order / {orderId} / DEL Request
+└ Delete purchase order by ID
+  DELETE https://petstore.swagger.io/v2/store/order/28890553 [404 Not Found, 390B, 221ms]
+  √  Status code is 404
+  √  Body matches string
+
+□ user / {username} / GET Request
+└ Get user by user name
+  GET https://petstore.swagger.io/v2/user/officia ea irure culpa [404 Not Found, 385B, 213ms]
+  √  Status code is 404
+
+└ Logs user into the system
+  GET https://petstore.swagger.io/v2/user/login?username=officia ea irure culpa&password=officia ea irure culpa [200 OK, 471B, 229ms]
+  √  Status code is 200
+
+└ Logs out current logged in user session
+  GET https://petstore.swagger.io/v2/user/logout [200 OK, 370B, 216ms]
+  √  Status code is 200
+
+□ user / {username} / POST Request
+└ Create user
+  POST https://petstore.swagger.io/v2/user [200 OK, 376B, 221ms]
+  √  Status code is 200, 201
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithArray [200 OK, 370B, 241ms]
+  √  Status code is 200 - 201
+
+└ Creates list of users with given input array
+  POST https://petstore.swagger.io/v2/user/createWithList [200 OK, 370B, 212ms]
+  √  Status code is 200 - 201
+
+□ user / {username} / PUT Request
+└ Updated user
+  PUT https://petstore.swagger.io/v2/user/officia ea irure culpa [200 OK, 376B, 219ms]
+  √  Status code is 200
+
+□ user / {username} / DEL Request
+└ Delete user
+  DELETE https://petstore.swagger.io/v2/user/officia ea irure culpa [404 Not Found, 292B, 223ms]
+  √  Status code is 404
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  19 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                  19 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                   0 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                  31 │                   2 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 7.7s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 80.05kB (approx)                               │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 296ms [min: 208ms, max: 1175ms, s.d.: 225ms] │
+└─────────────────────────────────────────────────────────────────────┘
+
+  #  failure                detail
+
+ 1.  AssertionError         the value of Available is 1
+                            expected false to be truthy
+                            at assertion:1 in test-script
+                            inside "store / order / {orderId} / GET Request / Returns pet inventories by status"
+
+ 2.  AssertionError         Status code is 404
+                            expected response to have status code 404 but got 200
+                            at assertion:0 in test-script
+                            inside "store / order / {orderId} / GET Request / Find purchase order by ID"
